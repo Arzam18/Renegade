@@ -20,16 +20,17 @@ jobs:
 
       - name: Build
         run: |
+          cd Renegade
           make CXX=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android24-clang++ \
                NATIVE="-march=armv8-a" \
                CXXFLAGS="-std=c++20 -O3 -funroll-loops -fno-exceptions -DNDEBUG -Wall -Wextra -pthread --target=aarch64-linux-android24"
 
       - name: List build output
         run: |
-          find . -maxdepth 1 -type f -executable
+          find Renegade -maxdepth 1 -type f -executable
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: renegade-android-arm64
-          path: Renegade
+          path: Renegade/Renegade
