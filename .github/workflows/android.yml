@@ -1,4 +1,4 @@
-Name: Build Renegade Android
+name: Build Renegade Android
 
 on:
   workflow_dispatch:
